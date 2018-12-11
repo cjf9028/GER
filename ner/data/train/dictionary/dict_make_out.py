@@ -4,6 +4,7 @@ import io
 #from imp import reload
 #reload(sys)
 #sys.setdefaultencoding('utf-8')
+#hello
 
 fin = io.open("../train_data", encoding='utf-8', mode='r+')
 
