@@ -1,9 +1,9 @@
 #-*- coding: utf-8 -*-
 import sys
 import io
-from imp import reload
-reload(sys)
-sys.setdefaultencoding('utf-8')
+#from imp import reload
+#reload(sys)
+#sys.setdefaultencoding('utf-8')
 
 fin = io.open("../train_data", encoding='utf-8', mode='r+')
 
@@ -38,19 +38,19 @@ while True:
 
             for gram in range(idxStart+1, idxEnd+2): # change to idxEnd+1
                 ll = len(word)
-                s = unicode("_"+word[0:gram-1]+unicode()) # count dict
+                s = "_"+word[0:gram-1] # count dict
                 #
                 fOutList[gram].write(s+"\t"+newTag+"\n")
                 for idx in range(ll):
                    
                     if idx+gram <= ll :
-                        fOutList[gram].write(word[idx:idx+gram]+unicode()) # count dict #
+                        fOutList[gram].write(word[idx:idx+gram]) # count dict #
                     else:
-                        fOutList[gram].write(unicode("_\t"+newTag+"\n"))
+                        fOutList[gram].write(("_\t"+newTag+"\n"))
                     
                         break
-                    fOutList[gram].write(unicode("\t"+newTag+"\n"))
-                fOutList[gram].write(unicode("\n"))
+                    fOutList[gram].write(("\t"+newTag+"\n"))
+                fOutList[gram].write(("\n"))
 
     except IndexError:
         pass
