@@ -8,9 +8,9 @@ import io
 
 fin = io.open("../train_data", encoding='utf-8', mode='r+')
 
-idxStart    = 2
+idxStart    = 1
 idxEnd      = 4
-nameList    = ["_", "_", "gram2.txt", "gram3.txt", "gram4.txt"]
+nameList    = ["_", "gram1.txt", "gram2.txt", "gram3.txt", "gram4.txt"]
 fOutList    = list()
 dictWord    = dict()
 
@@ -32,14 +32,16 @@ while True:
         tag = line.split("\t")[2].replace("\n","")
         word = line.split("\t")[1]
         
-        if len(tag) > 1 :
+        if len(tag) > 1:
             newTag = tag.split("_")[0]
 
             for gram in range(idxStart, idxEnd+1): # change to idxEnd+1
                 ll = len(word)
-                s = "_"+word[0:gram-1] # count dict
                 
-                fOutList[gram].write(s+"\t"+newTag+"\n")
+                if gram > 1:
+                    s = "_"+word[0:gram-1] # count dict
+                    
+                    fOutList[gram].write(s+"\t"+newTag+"\n")
                 for idx in range(ll):
                    
                     if idx+gram <= ll :
