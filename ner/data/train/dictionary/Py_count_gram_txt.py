@@ -1,8 +1,8 @@
 import io
 
-nameInList  = ["gram2.txt", "gram3.txt", "gram4.txt"]
+nameInList  = ["gram1.txt","gram2.txt", "gram3.txt", "gram4.txt"]
 nameOutList = list()
-cntIn       = 3 # how many input file
+cntIn       = 1 # how many input file
 fInList     = list()
 fOutList    = list()
 dictWord    = dict()
